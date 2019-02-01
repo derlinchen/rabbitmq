@@ -19,15 +19,16 @@
 	<!-- 定义mq管理 -->
 	<rabbit:admin connection-factory="connectionFactory" />
  
-	<!-- 声明队列 -->
+	<!-- 声明队列，可以声明多个队列 -->
 	<rabbit:queue name="queue" auto-declare="true" durable="true" />
  
-	<!-- 定义消费者 -->
-	<bean name="queuehandler" class="com.climber.rabbitmq.PigHandler" />
+	<!-- 定义消费者 ，可定义多个 -->
+	<bean name="queuehandler" class="com.climber.rabbitmq.RecvHandler" />
  
 	<!-- 定义消费者监听队列 -->
 	<rabbit:listener-container
 		connection-factory="connectionFactory">
+		<!-- 可以定义多个监听对消费者进行配置 -->
 		<rabbit:listener ref="queuehandler" queues="queue" />
 	</rabbit:listener-container>
  

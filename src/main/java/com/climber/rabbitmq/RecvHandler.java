@@ -8,7 +8,7 @@ import org.springframework.amqp.core.MessageListener;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-public class PigHandler implements MessageListener {
+public class RecvHandler implements MessageListener {
 
 	private static final ObjectMapper MAPPER = new ObjectMapper();
 

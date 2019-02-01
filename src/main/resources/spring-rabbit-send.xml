@@ -17,12 +17,13 @@
 	<!-- 定义mq管理 -->
 	<rabbit:admin connection-factory="connectionFactory" />
  
-	<!-- 声明队列 -->
+	<!-- 声明队列，可以声明对个队列 -->
 	<rabbit:queue name="queue" auto-declare="true" durable="true" />
  
 	<!-- 定义交换机绑定队列（路由模式） -->
 	<rabbit:direct-exchange name="IExchange" id="IExchange">
 		<rabbit:bindings>
+			<!-- 可绑定多个队列，发送的时候指定key进行发送 -->
 			<rabbit:binding queue="queue" key="queuekey" />
 		</rabbit:bindings>
 	</rabbit:direct-exchange>
