@@ -14,9 +14,8 @@ public class RabbitController {
 	@Autowired
 	private RabbitTemplate rabbitTemplate;
 	
-	@RequestMapping(value="rabbit",method=RequestMethod.GET)
+	@RequestMapping(value="/rabbit",method=RequestMethod.GET)
 	public void rabbit(){
-		
 		HashMap<String, String> map = new HashMap<String, String>();
 		map.put("id", "1");
 		map.put("name", "pig");
